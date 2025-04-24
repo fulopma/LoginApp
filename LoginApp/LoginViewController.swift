@@ -5,6 +5,11 @@
 //  Created by Marcell Fulop on 4/23/25.
 //
 
+// Navigation between controllers
+// Tableview (very important in UIkit)
+//     99% of applications use tableview; easy but steps need to remember
+//
+
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -18,17 +23,18 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Login Button Press
-    // TODO: - Center Login Elements
     @IBAction func loginButtonPress(_ sender: Any) {
         let username = usernameField.text ?? ""
         let password = passwordField.text ?? ""
         if username == "admin" && password == "password" {
             
-            let successAlert = UIAlertController(title: "😘 Login Successful", message: "Welcome \(username)!", preferredStyle: .alert)
-            successAlert.addAction(UIAlertAction(title: NSLocalizedString("Yass 🤩", comment: "This closes alert"), style: .default, handler: { _ in
-                    NSLog("Logged in")
-                    }))
-            self.present(successAlert, animated: true, completion: nil)
+//            let successAlert = UIAlertController(title: "😘 Login Successful", message: "Welcome \(username)!", preferredStyle: .alert)
+//            successAlert.addAction(UIAlertAction(title: NSLocalizedString("Yass 🤩", comment: "This closes alert"), style: .default, handler: { _ in
+//                NSLog("Logged in")
+//            }))
+//            
+//            self.present(successAlert, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "navigateHomeScreen", sender: nil)
             
         }
         else{
