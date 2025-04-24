@@ -96,9 +96,9 @@ class ViewController: UIViewController, UITableViewDataSource{
     // display name
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "someCell", for: indexPath)
-        cell.textLabel?.text = employees[indexPath.row]["first name"] ?? ""
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "someCell", for: indexPath) as? NameTableViewCell
+        cell?.label1.text = "\(employees[indexPath.row]["first name"] ?? "") \(employees[indexPath.row]["last name"] ?? "")"
+        return cell ?? UITableViewCell()
     }
     /// From employee dictionary
     /// Display this data in this view (only one field maybe first name)
