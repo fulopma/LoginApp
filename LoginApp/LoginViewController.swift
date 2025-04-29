@@ -26,21 +26,14 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPress(_ sender: Any) {
         let username = usernameField.text ?? ""
         let password = passwordField.text ?? ""
-        if username == "admin" && password == "password" {
-            
-//            let successAlert = UIAlertController(title: "😘 Login Successful", message: "Welcome \(username)!", preferredStyle: .alert)
-//            successAlert.addAction(UIAlertAction(title: NSLocalizedString("Yass 🤩", comment: "This closes alert"), style: .default, handler: { _ in
-//                NSLog("Logged in")
-//            }))
-//            
-//            self.present(successAlert, animated: true, completion: nil)
+        if username == "admin" && password == "admin" {
             self.performSegue(withIdentifier: "navigateHomeScreen", sender: nil)
             
         }
         else{
             
             let failureAlert = UIAlertController(title: "😢 Login Failed", message: "Your credentials are incorrect. Try again.", preferredStyle: .alert)
-            failureAlert.addAction(UIAlertAction(title: NSLocalizedString("What? Where's your manager? 😱", comment: "This closes alert"), style: .default, handler: { _ in
+            failureAlert.addAction(UIAlertAction(title: NSLocalizedString("What? 😱", comment: "This closes alert"), style: .default, handler: { _ in
                     NSLog("Login failed")
                     }))
             

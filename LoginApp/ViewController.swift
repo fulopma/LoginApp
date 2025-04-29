@@ -87,6 +87,7 @@ class ViewController: UIViewController, UITableViewDataSource{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         tableView.dataSource = self
+        tableView.delegate = self
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -98,12 +99,35 @@ class ViewController: UIViewController, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "someCell", for: indexPath) as? NameTableViewCell
         cell?.label1.text = "\(employees[indexPath.row]["first name"] ?? "") \(employees[indexPath.row]["last name"] ?? "")"
+        cell?.label2.text = employees[indexPath.row]["title"]
         return cell ?? UITableViewCell()
     }
     /// From employee dictionary
     /// Display this data in this view (only one field maybe first name)
     
-
+    
 
 }
 
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         //performSegue(withIdentifier: "showResult", sender: nil)
+       
+        // manual way to do segue
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: "EmployeeDetailViewController")
+                as? EmployeeDetailViewController else{
+            return
+        }
+        vc.firstName = employees[indexPath.row]["first name"]
+        vc.lastName = employees[indexPath.row]["last name"]
+        vc.employeeTitle = employees[indexPath.row]["title"]
+        vc.email = employees[indexPath.row]["email"]
+        vc.salary = employees[indexPath.row]["salary"]
+        
+        self.present(vc, animated: true)
+        
+       
+        
+    }
+}
