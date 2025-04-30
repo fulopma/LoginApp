@@ -49,16 +49,46 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teU-ga-kaD">
+                                                    <rect key="frame" x="290.66666666666669" y="10" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="U4T-7i-mZ1"/>
+                                                        <constraint firstAttribute="width" constant="35" id="ZZw-O5-FZF"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" image="square.and.arrow.up" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="shareButtonPress:" destination="MuX-Ha-MTu" eventType="touchUpInside" id="Dkr-EL-zl2"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlH-6I-d6e">
+                                                    <rect key="frame" x="290.66666666666669" y="75" width="35" height="35"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="oqh-EV-DQP"/>
+                                                        <constraint firstAttribute="width" constant="35" id="or7-Df-1PF"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="filled" image="trash" catalog="system">
+                                                        <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                                    </buttonConfiguration>
+                                                    <connections>
+                                                        <action selector="deleteButtonPress:" destination="MuX-Ha-MTu" eventType="touchUpInside" id="xAr-XV-7Lc"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="zcv-iz-O9q" firstAttribute="top" secondItem="MOu-kl-8J0" secondAttribute="top" constant="10" id="Dbv-ID-RhV"/>
+                                                <constraint firstAttribute="bottom" secondItem="NlH-6I-d6e" secondAttribute="bottom" constant="10" id="G4x-aE-of5"/>
                                                 <constraint firstItem="OGh-Fm-2NX" firstAttribute="top" secondItem="MOu-kl-8J0" secondAttribute="top" constant="10" id="G6t-ZE-Z4Q"/>
                                                 <constraint firstItem="Qmg-QM-vdQ" firstAttribute="top" secondItem="zcv-iz-O9q" secondAttribute="bottom" constant="34" id="IEG-xA-yoy"/>
                                                 <constraint firstItem="zcv-iz-O9q" firstAttribute="leading" secondItem="OGh-Fm-2NX" secondAttribute="trailing" constant="10" id="UsD-xS-tTO"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="Qmg-QM-vdQ" secondAttribute="trailing" constant="10" id="W3Y-nc-frB"/>
+                                                <constraint firstItem="teU-ga-kaD" firstAttribute="top" secondItem="MOu-kl-8J0" secondAttribute="top" constant="10" id="X0y-dT-yce"/>
                                                 <constraint firstAttribute="bottom" secondItem="OGh-Fm-2NX" secondAttribute="bottom" constant="10" id="bgZ-nT-sbh"/>
+                                                <constraint firstAttribute="trailing" secondItem="teU-ga-kaD" secondAttribute="trailing" constant="5" id="e7c-hf-j4D"/>
                                                 <constraint firstItem="OGh-Fm-2NX" firstAttribute="leading" secondItem="MOu-kl-8J0" secondAttribute="leading" constant="10" id="jM4-Gf-M6v"/>
                                                 <constraint firstItem="Qmg-QM-vdQ" firstAttribute="leading" secondItem="OGh-Fm-2NX" secondAttribute="trailing" constant="10" id="mwY-T3-864"/>
+                                                <constraint firstAttribute="trailing" secondItem="NlH-6I-d6e" secondAttribute="trailing" constant="5" id="rtf-uE-h5D"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -162,11 +192,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="square.and.arrow.up" catalog="system" width="110" height="128"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

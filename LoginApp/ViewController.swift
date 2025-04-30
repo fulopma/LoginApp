@@ -6,8 +6,13 @@
 
 import UIKit
 
+protocol EmployeeCellActions{
+    func shareEmployeeDetails(name: String)
+    func deleteEmployee(firstName: String, lastName: String )
+}
+
 class ViewController: UIViewController, UITableViewDataSource{
-    let employees = [
+    var employees = [
         [
             "first name": "Michael",
             "last name": "Scott",
@@ -100,6 +105,7 @@ class ViewController: UIViewController, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "someCell", for: indexPath) as? NameTableViewCell
         cell?.label1.text = "\(employees[indexPath.row]["first name"] ?? "") \(employees[indexPath.row]["last name"] ?? "")"
         cell?.label2.text = employees[indexPath.row]["title"]
+        cell?.delegate = self
         return cell ?? UITableViewCell()
     }
     /// From employee dictionary
@@ -126,8 +132,23 @@ extension ViewController: UITableViewDelegate {
         vc.salary = employees[indexPath.row]["salary"]
         
         self.present(vc, animated: true)
-        
-       
-        
+    }
+    
+    
+}
+
+extension ViewController: EmployeeCellActions{
+    func shareEmployeeDetails(name: String) {
+        print(name)
+    }
+    
+    func deleteEmployee(firstName: String, lastName: String ){
+        for (index, employee) in employees.enumerated() {
+            if employee["first name"] == firstName && employee["last name"] == lastName {
+                employees.remove(at: index)
+                tableView.reloadData()
+                break
+            }
+        }
     }
 }
